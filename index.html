@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0a0a0a;
+    color:white;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* Header */
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    background:linear-gradient(90deg,#00d4ff,#8a2be2);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#00d4ff;
+}
+
+/* Hero */
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content h1{
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+.hero-content span{
+    background:linear-gradient(90deg,#00d4ff,#8a2be2);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-content p{
+    max-width:700px;
+    margin:auto;
+    color:#ccc;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 35px;
+    border-radius:30px;
+    text-decoration:none;
+    margin:10px;
+    font-weight:600;
+    transition:.4s;
+}
+
+.primary{
+    background:linear-gradient(90deg,#00d4ff,#8a2be2);
+    color:white;
+}
+
+.secondary{
+    border:2px solid #00d4ff;
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* Sections */
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+}
+
+.section-title span{
+    color:#00d4ff;
+}
+
+/* About */
+.about{
+    text-align:center;
+    color:#ccc;
+    max-width:900px;
+    margin:auto;
+}
+
+/* Services */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    padding:30px;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#00d4ff;
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+/* Skills */
+.skill{
+    margin-bottom:20px;
+}
+
+.skill-name{
+    margin-bottom:8px;
+}
+
+.bar{
+    background:#222;
+    height:10px;
+    border-radius:20px;
+}
+
+.fill{
+    height:10px;
+    border-radius:20px;
+    background:linear-gradient(90deg,#00d4ff,#8a2be2);
+}
+
+/* Portfolio */
+.portfolio-item{
+    overflow:hidden;
+    border-radius:20px;
+    background:#111;
+}
+
+.portfolio-item img{
+    width:100%;
+    display:block;
+}
+
+.portfolio-content{
+    padding:20px;
+}
+
+/* Contact */
+.contact-form{
+    max-width:700px;
+    margin:auto;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:none;
+    background:#1a1a1a;
+    color:white;
+    border-radius:10px;
+}
+
+.contact-form button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00d4ff,#8a2be2);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* Footer */
+footer{
+    background:#050505;
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+    font-size:40px;
+}
+
+nav ul{
+    display:none;
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;
+height:60px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+color:white;
+text-decoration:none;
+z-index:999;
+box-shadow:0 5px 15px rgba(0,0,0,.4);
+}
+
+.work{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">PV</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h1>Professional <span>Website Developer</span></h1>
+
+<p>
+I build modern, responsive, SEO-friendly websites that help businesses
+grow online and generate more customers.
+</p>
+
+<a href="#portfolio" class="btn primary">View Portfolio</a>
+
+
+</div>
+</section>
+
+<!-- About -->
+<section id="about">
+
+<h2 class="section-title">About <span>Me</span></h2>
+
+<p class="about">
+I am a professional website developer specializing in business websites,
+eCommerce stores, portfolios, landing pages, and custom web solutions.
+My focus is creating fast, beautiful, and conversion-focused websites.
+</p>
+
+</section>
+
+<!-- Services -->
+<section id="services">
+
+<h2 class="section-title">My <span>Services</span></h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Website Design</h3>
+<p>Modern UI/UX design with premium visuals.</p>
+</div>
+
+<div class="card">
+<h3>Website Development</h3>
+<p>Fast and responsive websites using latest technologies.</p>
+</div>
+
+<div class="card">
+<h3>E-Commerce Store</h3>
+<p>Complete online store with payment integration.</p>
+</div>
+
+<div class="card">
+<h3>SEO Optimization</h3>
+<p>Rank better on Google and attract more customers.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Skills -->
+<section>
+
+<h2 class="section-title">My <span>Skills</span></h2>
+
+<div class="skill">
+<div class="skill-name">HTML & CSS</div>
+<div class="bar"><div class="fill" style="width:95%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-name">JavaScript</div>
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-name">WordPress</div>
+<div class="bar"><div class="fill" style="width:92%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-name">SEO</div>
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio">
+
+<h2 class="section-title">My <span>Portfolio</span></h2>
+
+<div class="grid">
+
+<div class="portfolio-item">
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="">
+<div class="portfolio-content">
+<h3>Business Website</h3>
+<p>Modern company website design.</p>
+</div>
+</div>
+
+<div class="portfolio-item">
+<img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=600" alt="">
+<div class="portfolio-content">
+<h3>E-Commerce Store</h3>
+<p>Premium online shopping platform.</p>
+</div>
+</div>
+
+<div class="portfolio-item">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="">
+<div class="portfolio-content">
+<h3>Portfolio Website</h3>
+<p>Creative personal portfolio design.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="work">
+<div class="grid">
+<h2 class="section-title">My <span>work</span></h2>
+
+<div class="portfolio-item">
+<a href="https://ramrajput9951-eng.github.io/Beloz/" class="btn primary">BELOZ</a>
+</div>
+<div class="portfolio-item">
+<a href="https://ramrajput9951-eng.github.io/Signature.com/" class="btn primary">Signature Scent</a>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Developer Portfolio. All Rights Reserved.</p>
+</footer>
+
+
+<a href="https://wa.me/919327306800" class="whatsapp-float">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
